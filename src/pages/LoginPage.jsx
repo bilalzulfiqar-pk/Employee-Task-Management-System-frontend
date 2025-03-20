@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { DataContext } from "../context/DataContext";
 import { useNavigate } from "react-router-dom";
-import { FaCopy } from "react-icons/fa";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -67,64 +66,50 @@ const LoginPage = () => {
         {/* Demo Credentials */}
         <div className="bg-gray-200 p-4 rounded-lg mb-4 text-sm text-gray-800">
           <p className="font-semibold text-gray-900">🔹 Admin Login</p>
-          <div className="flex justify-between items-center">
-            <p>
-              Email:{" "}
-              <span className="font-mono text-blue-600">
-                zain.malik@example.com
-              </span>
-            </p>
-            <button
-              className="text-gray-600 hover:text-gray-800 cursor-pointer active:scale-90 transition"
-              onClick={() =>
-                navigator.clipboard.writeText("zain.malik@example.com")
-              }
-            >
-              <FaCopy size={15} />
-            </button>
-          </div>
-          <div className="flex justify-between items-center">
-            <p>
-              Password:{" "}
-              <span className="font-mono text-blue-600">adminpass1</span>
-            </p>
-            <button
-              className="text-gray-600 hover:text-gray-800 cursor-pointer active:scale-90 transition"
-              onClick={() => navigator.clipboard.writeText("adminpass1")}
-            >
-              <FaCopy size={15} />
-            </button>
-          </div>
+          <p>
+            Email:{" "}
+            <span className="font-mono text-blue-600">
+              zain.malik@example.com
+            </span>
+          </p>
+          <p>
+            Password:{" "}
+            <span className="font-mono text-blue-600">adminpass1</span>
+          </p>
+          <button
+            className="w-full mt-2 px-3 py-2 bg-blue-500 text-white rounded-md font-medium hover:bg-blue-600 transition-all shadow-md cursor-pointer"
+            onClick={() =>
+              setFormData({
+                email: "zain.malik@example.com",
+                password: "adminpass1",
+              })
+            }
+          >
+            Use Admin Credentials
+          </button>
 
-          <p className="mt-3 font-semibold text-gray-900">🔹 Employee Login</p>
-          <div className="flex justify-between items-center">
-            <p>
-              Email:{" "}
-              <span className="font-mono text-green-600">
-                ali.khan@example.com
-              </span>
-            </p>
-            <button
-              className="text-gray-600 hover:text-gray-800 cursor-pointer active:scale-90 transition"
-              onClick={() =>
-                navigator.clipboard.writeText("ali.khan@example.com")
-              }
-            >
-              <FaCopy size={15} />
-            </button>
-          </div>
-          <div className="flex justify-between items-center">
-            <p>
-              Password:{" "}
-              <span className="font-mono text-green-600">password123</span>
-            </p>
-            <button
-              className="text-gray-600 hover:text-gray-800 cursor-pointer active:scale-90 transition"
-              onClick={() => navigator.clipboard.writeText("password123")}
-            >
-              <FaCopy size={15} />
-            </button>
-          </div>
+          <p className="mt-4 font-semibold text-gray-900">🔹 Employee Login</p>
+          <p>
+            Email:{" "}
+            <span className="font-mono text-green-600">
+              ali.khan@example.com
+            </span>
+          </p>
+          <p>
+            Password:{" "}
+            <span className="font-mono text-green-600">password123</span>
+          </p>
+          <button
+            className="w-full mt-2 px-3 py-2 bg-green-500 text-white rounded-md font-medium hover:bg-green-600 transition-all shadow-md cursor-pointer"
+            onClick={() =>
+              setFormData({
+                email: "ali.khan@example.com",
+                password: "password123",
+              })
+            }
+          >
+            Use Employee Credentials
+          </button>
         </div>
 
         <form onSubmit={handleLogin}>
